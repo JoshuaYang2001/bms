@@ -1,6 +1,8 @@
 import Vue from 'vue'
 // 按需引入 ui
-import {Button,Form,FormItem,Input,Message,Container,Header,Aside,Main,Menu,Submenu,MenuItem,} from 'element-ui'
+import {Button,Form,FormItem,Input,Message,Container,Header,Aside,Main,Menu,Submenu,MenuItem,
+  Breadcrumb,BreadcrumbItem,Card,Row,Col,Table,TableColumn
+} from 'element-ui'
 // 引入消息弹窗
 Vue.prototype.$message = Message
 Vue.use(Button)
@@ -14,4 +16,10 @@ Vue.use(Main)
 Vue.use(Menu)
 Vue.use(Submenu)
 Vue.use(MenuItem)
-
+Vue.use(Breadcrumb)
+Vue.use(BreadcrumbItem)
+Vue.use(Card)
+Vue.use(Col)
+Vue.use(Row)
+Vue.use(Table)
+Vue.use(TableColumn)

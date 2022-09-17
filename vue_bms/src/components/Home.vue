@@ -19,23 +19,24 @@
           text-color="#3c3f41"
           active-text-color="#FFAE6D"
           unique-opened
-          :collapse = 'isCollapse'
+          :collapse='isCollapse'
           :collapse-transition="false"
           router
-          :default-active= "activePath"
+          :default-active="activePath"
         >
 
           <el-submenu :index="item.id+''" v-for="(item,index) in menuList" :key="item.id">
             <!--            模板区-->
             <template slot="title">
               <i :class="iconsObj[item.id]"></i>
-              <span>{{item.authName}}</span>
+              <span>{{ item.authName }}</span>
             </template>
             <!--            二级菜单区-->
-            <el-menu-item @click="saveNavState('/'+subItem.path)" :index="'/'+subItem.path" v-for="subItem in item.children" :key="subItem.id">
+            <el-menu-item @click="saveNavState('/'+subItem.path)" :index="'/'+subItem.path"
+                          v-for="subItem in item.children" :key="subItem.id">
               <template slot="title">
                 <i class="iconfont icon-renxiang"></i>
-                <span>{{subItem.authName}}</span>
+                <span>{{ subItem.authName }}</span>
               </template>
             </el-menu-item>
           </el-submenu>
@@ -62,12 +63,12 @@ export default {
       activePath: '',
       menuList: [],
       // 字体图标对象
-      iconsObj:{
-        '125':'iconfont icon-users',
-        '103':'iconfont icon-lifangtilitiduomiantifangkuai2',
-        '101':'iconfont icon-shangpinguanli1',
-        '102':'iconfont icon-dingdanguanli',
-        '145':'iconfont icon-shujutongji',
+      iconsObj: {
+        '125': 'iconfont icon-users',
+        '103': 'iconfont icon-lifangtilitiduomiantifangkuai2',
+        '101': 'iconfont icon-shangpinguanli1',
+        '102': 'iconfont icon-dingdanguanli',
+        '145': 'iconfont icon-shujutongji',
       },
       isCollapse: false
     }
@@ -92,12 +93,12 @@ export default {
       this.menuList = res.data
     },
     // 折叠菜单
-    toggleCollapse(){
+    toggleCollapse() {
       this.isCollapse = !this.isCollapse
       console.log(this.isCollapse)
     },
-    saveNavState(activePath){
-      window.sessionStorage.setItem('activePath',activePath)
+    saveNavState(activePath) {
+      window.sessionStorage.setItem('activePath', activePath)
       this.activePath = activePath
     }
 
@@ -137,19 +138,20 @@ export default {
 
 .el-aside {
   background-color: #a5f1e9;
-  .toggle-button{
-    background-color:@font-color ;
+
+  .toggle-button {
+    background-color: @font-color;
     text-align: center;
     font-size: 18px;
     height: 30px;
     letter-spacing: 3px;
-    color:#a5f1e9 ;
+    color: #a5f1e9;
     line-height: 30px;
     cursor: pointer;
   }
 }
 
-.iconfont{
+.iconfont {
   margin-right: 10px;
 }
 

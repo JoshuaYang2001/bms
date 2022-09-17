@@ -3,3 +3,18 @@ html,body,#app {
     margin: 0;
     padding: 0;
 }
+
+
+.el-breadcrumb{
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+.el-card{
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.15);    /*用最高权重覆盖组件样式*/
+    background-color: #ffffff;
+}
+
+.el-table{
+    margin-top: 15px;
+    font-size: 14px;
+}
