@@ -1,7 +1,7 @@
 import Vue from 'vue'
 // 按需引入 ui
 import {Button,Form,FormItem,Input,Message,Container,Header,Aside,Main,Menu,Submenu,MenuItem,
-  Breadcrumb,BreadcrumbItem,Card,Row,Col,Table,TableColumn
+  Breadcrumb,BreadcrumbItem,Card,Row,Col,Table,TableColumn,Switch,Tooltip,Pagination,Dialog
 } from 'element-ui'
 // 引入消息弹窗
 Vue.prototype.$message = Message
@@ -23,3 +23,7 @@ Vue.use(Col)
 Vue.use(Row)
 Vue.use(Table)
 Vue.use(TableColumn)
+Vue.use(Switch)
+Vue.use(Tooltip)
+Vue.use(Pagination)
+Vue.use(Dialog)
