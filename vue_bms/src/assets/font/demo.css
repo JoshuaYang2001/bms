@@ -1,11 +1,10 @@
 /* Logo 字体 */
+/* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
 @font-face {
-  font-family: "iconfont logo";
-  src: url('https://at.alicdn.com/t/font_985780_km7mi63cihi.eot?t=1545807318834');
-  src: url('https://at.alicdn.com/t/font_985780_km7mi63cihi.eot?t=1545807318834#iefix') format('embedded-opentype'),
-    url('https://at.alicdn.com/t/font_985780_km7mi63cihi.woff?t=1545807318834') format('woff'),
-    url('https://at.alicdn.com/t/font_985780_km7mi63cihi.ttf?t=1545807318834') format('truetype'),
-    url('https://at.alicdn.com/t/font_985780_km7mi63cihi.svg?t=1545807318834#iconfont') format('svg');
+  font-family: 'iconfont';  /* Project id 3641921 */
+  src: url('//at.alicdn.com/t/c/font_3641921_pxhy4zy0hv.woff2?t=1664076245706') format('woff2'),
+  url('//at.alicdn.com/t/c/font_3641921_pxhy4zy0hv.woff?t=1664076245706') format('woff'),
+  url('//at.alicdn.com/t/c/font_3641921_pxhy4zy0hv.ttf?t=1664076245706') format('truetype');
 }
 
 .logo {

@@ -69,7 +69,8 @@
         <el-table-column
           label="操作">
           <template v-slot="scope">
-            <el-button type="primary" icon="el-icon-edit"></el-button>
+<!--            编辑用户信息-->
+            <el-button type="primary" icon="el-icon-edit" @click="editUserInfo"></el-button>
             <el-button type="danger" icon="el-icon-delete"></el-button>
             <el-tooltip class="item" effect="dark" content="分配角色" placement="right" :enterable="false">
               <el-button type="warning" icon="el-icon-setting"></el-button>
@@ -94,6 +95,7 @@
       title="添加用户"
       :visible.sync="dialogVisible"
       width="50%"
+      @close = 'addDialogClosed'
     >
       <!--      表单-->
       <el-form ref="addFormRef" :model="addForm" :rules="addFormRules" label-width="80px">
@@ -106,14 +108,14 @@
         <el-form-item label="邮箱" prop="email">
           <el-input v-model="addForm.email"></el-input>
         </el-form-item>
-        <el-form-item label="手机" prop="phoneNumber">
-          <el-input v-model="addForm.phoneNumber"></el-input>
+        <el-form-item label="手机" prop="mobile">
+          <el-input v-model="addForm.mobile"></el-input>
         </el-form-item>
       </el-form>
 
       <span slot="footer" class="dialog-footer">
     <el-button @click="dialogVisible = false">取 消</el-button>
-    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+    <el-button type="primary" @click="addUser">确 定</el-button>
   </span>
     </el-dialog>
 
@@ -124,6 +126,22 @@
 export default {
   name: "user",
   data() {
+    // 校验邮箱
+    const checkEmail = (rule,value,cb) => {
+      const regEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+      if(regEmail.test(value)) {
+        return cb()
+      }
+      cb(new Error('请输入合法的邮箱'))
+    }
+    const checkNumber = (rule,value,cb) => {
+      const regNumber = /^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/
+      if(regNumber.test(value)) {
+        return cb()
+      }
+      cb(new Error('请输入合法的手机号'))
+    }
+
     return {
       input: '',
       queryInfo: {
@@ -140,7 +158,7 @@ export default {
         username: '',
         password: '',
         email: '',
-        phoneNumber: ''
+        mobile: ''
       },
       addFormRules: {
         username: [
@@ -151,10 +169,12 @@ export default {
           {min: 6, max: 15, message: '长度在 6 到 15 个字符', trigger: 'blur'}
         ],
         email: [
-          {required: true, message: '请输入用户邮箱', trigger: 'blur'}
+          {required: true, message: '请输入用户邮箱', trigger: 'blur'},
+          { validator: checkEmail, trigger: 'blur' }
         ],
-        phoneNumber: [
-          {required: true, message: '请输入用户手机号', trigger: 'blur'}
+        mobile: [
+          {required: true, message: '请输入用户手机号', trigger: 'blur'},
+          {validator: checkNumber, trigger: 'blur'}
         ],
       }
     }
@@ -194,6 +214,25 @@ export default {
       this.queryInfo.pagenum = newPage
       this.getUserList()
     },
+    addDialogClosed(){
+      this.$refs.addFormRef.resetFields()
+    },
+    // 添加用户确定
+    addUser(){
+      this.$refs.addFormRef.validate(async valid=>{
+        if (!valid) return
+        // 如果验证有效就发起网络请求
+        const {data:res} = await this.$http.post('users',this.addForm)
+        if(res.meta.status !== 201) return this.$message.error('用户创建失败')
+        this.$message.success(res.meta.msg)
+        this.dialogVisible = false
+        this.getUserList()
+      })
+    },
+    // 编辑用户信息
+    editUserInfo(){
+
+    }
   }
 }
 </script>

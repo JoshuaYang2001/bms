@@ -12,12 +12,12 @@
     <el-container>
       <!--      侧边栏-->
       <el-aside :width="isCollapse? '64px':'200px'">
-        <div class="toggle-button" @click="toggleCollapse">|||</div>
+        <div class="toggle-button" @click="toggleCollapse"><div class="iconfont icon-zhedie1"></div></div>
         <!--        侧边栏菜单区-->
         <el-menu
-          background-color="#a5f1e9"
-          text-color="#3c3f41"
-          active-text-color="#FFAE6D"
+          background-color="#304156"
+          text-color="#bfcbd9"
+          active-text-color="#409eff"
           unique-opened
           :collapse='isCollapse'
           :collapse-transition="false"
@@ -107,14 +107,19 @@ export default {
 </script>
 
 <style scoped lang="less">
-@font-color: #55a1c0;
-
+@theme-color: #304156;
+//折叠图标调整
+.icon-zhedie1{
+  font-size: 25px;
+  margin:15px 10px 0 10px !important;
+  color: #c7c7c7;
+}
 .home-container {
   height: 100%;
 }
 
 .el-header {
-  background-color: #7FBCD2;
+  background-color: #324b64;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -135,17 +140,21 @@ export default {
 
 
 }
-
+//菜单展开时右侧细微突出
+.el-menu{
+  border-right: none;
+}
 .el-aside {
-  background-color: #a5f1e9;
+  background-color: @theme-color;
+
 
   .toggle-button {
-    background-color: @font-color;
+    background-color: @theme-color;
     text-align: center;
     font-size: 18px;
     height: 30px;
     letter-spacing: 3px;
-    color: #a5f1e9;
+    color: #eff1f4;
     line-height: 30px;
     cursor: pointer;
   }
@@ -156,7 +165,7 @@ export default {
 }
 
 .el-main {
-  background-color: #e1ffee;
+  background-color: #eff1f4;
 }
 
 </style>
