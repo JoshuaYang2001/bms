@@ -1,0 +1,23 @@
+{
+  "id": "3641921",
+  "name": "bms",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1130",
+      "name": "锁定",
+      "font_class": "suoding",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "6077738",
+      "name": "人像",
+      "font_class": "renxiang",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    }
+  ]
+}
