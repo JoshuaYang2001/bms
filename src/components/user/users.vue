@@ -296,7 +296,7 @@ export default {
           })
         if (res.meta.status !== 200) return this.$message.error('更新失败')
         this.editUserDialog = false
-        this.getUserList()
+        await this.getUserList()
         this.$message.success(res.meta.msg)
       })
     },
@@ -312,10 +312,11 @@ export default {
 
       console.log(deleteResult)
       if (deleteResult !== 'confirm') return this.$message.info('已取消')
-      const{data:res} = await this.$http.delete('users/' + id)
-      if(res.meta.status !== 200) return this.$message.error('删除失败！')
+      const {data: res} = await this.$http.delete('users/' + id)
+      console.log(res)
+      if (res.meta.status !== 200) return this.$message.error('删除失败！')
       this.$message.success(res.meta.msg)
-      this.getUserList()
+      await this.getUserList()
     }
   }
 
@@ -327,6 +328,6 @@ export default {
 </style>
 
 
-const {data:res} =  this.$http.delete('users/'+ id)
-if (res.meta.status !==200) return this.$message.error('删除失败！')
-this.$message.success(res.meta.msg)
+<!--const {data:res} =  this.$http.delete('users/'+ id)-->
+<!--if (res.meta.status !==200) return this.$message.error('删除失败！')-->
+<!--this.$message.success(res.meta.msg)-->
