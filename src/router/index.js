@@ -5,7 +5,8 @@ import Home from '@/components/Home'
 import Welcome from "@/components/Welcome";
 import users from "@/components/user/users";
 import register from "@/components/register";
-
+import Right from "@/components/power/Right";
+import Roles from "@/components/power/Roles";
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -30,7 +31,16 @@ const router = new VueRouter({
         {
           path:'/users',
           component:users
-        }]
+        },
+        {
+          path: '/rights',
+          component: Right
+        },
+        {
+          path: '/roles',
+          component: Roles
+        }
+        ]
     },
     {
       path: '/register',

@@ -146,7 +146,7 @@ export default {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(1600px);
+      transform: translateX(800px);
     }
   }
 
