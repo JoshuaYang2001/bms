@@ -2,7 +2,7 @@ import Vue from 'vue'
 // 按需引入 ui
 import {Button,Form,FormItem,Input,Message,Container,Header,Aside,Main,Menu,Submenu,MenuItem,
   Breadcrumb,BreadcrumbItem,Card,Row,Col,Table,TableColumn,Switch,Tooltip,Pagination,Dialog,MessageBox
-,Tag} from 'element-ui'
+,Tag,Tree} from 'element-ui'
 // 引入消息弹窗
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
@@ -29,5 +29,6 @@ Vue.use(Tooltip)
 Vue.use(Pagination)
 Vue.use(Dialog)
 Vue.use(Tag)
+Vue.use(Tree)
 
 
